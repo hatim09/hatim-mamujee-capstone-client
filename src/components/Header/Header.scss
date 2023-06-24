@@ -1,0 +1,70 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/colors" as *;
+
+@keyframes logoAnimation {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+
+.header {
+    
+    &__container {
+        background-color: $White;
+        padding-bottom: 2rem;
+    }
+
+    &__logo-container {
+        background: $White;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__logo {
+        margin-top: 1rem;
+        animation: logoAnimation 1s ease-in-out forwards;
+    }
+}
+
+.navbar {
+
+    &__list {
+        display: flex;
+        justify-content: space-around;
+        list-style-type: none;
+        width: 100%;
+        padding-top: 2rem;
+        padding-right: 1rem;
+        padding-left: 1rem;
+
+    }
+
+    &__item {
+        font-size: 1.125rem;
+        
+    }
+
+    &__navlink {
+        color: #002147;
+        text-decoration: none;
+        width: 100%;
+        background-color: $White;
+        padding: 0.5rem 2rem;
+        border-radius: 2rem;
+    }
+}
+
+.active-link {
+    color: #002147;
+    text-decoration: none;
+    background-color: $Orange;
+    padding: 0.5rem 3rem;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
