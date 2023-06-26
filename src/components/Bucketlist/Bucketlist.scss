@@ -1,2 +1,36 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/colors" as *;
+
+.bucketlist {
+    margin-left: 12rem;
+    margin-right: 12rem;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__table {
+    width: 100%;
+    border-collapse: collapse;
+    }
+  
+    &__row {
+      &:nth-child(even) {
+        background-color: #f5f5f5;
+      }
+  
+      &--highlighted {
+        background-color: #ffe0b2;
+      }
+    }
+  
+    &__cell {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    &__space {
+        margin-bottom: 30rem;
+    }
+  }

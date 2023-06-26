@@ -3,6 +3,31 @@
 
 .attractions {
 
+    &__block {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2rem;
+    }
+
+    &__space {
+        height: 30rem;
+    }
+
+    &__title {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        font-weight: 400;
+        color: $Charcoal-Grey;
+    }
+
+    &__dropdown {
+        margin-left: 3.5rem;
+        padding: 0.5rem 0;
+        border: 1px solid $Light-Grey;
+        border-radius: 1rem;
+        text-align: center;
+    }
+
     &__container {
         display: flex;
         flex-wrap: wrap;
@@ -16,7 +41,7 @@
         margin-bottom: 20px;
         /* Add margin to create space between rows */
         padding: 20px;
-        background-color: #f2f2f2;
+        background-color: #FEFAF5;
         border-radius: 8px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 

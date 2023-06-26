@@ -1,6 +1,7 @@
 import './Attractions.scss';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
 
 const Attractions = () => {
 
@@ -43,18 +44,46 @@ const Attractions = () => {
         fetchAttractions();
     }, [selectedCity]);
 
+    const handleAddToBucketlist = (attraction) => {
+        const { attraction_city, attraction_name, attraction_description, attraction_image } = attraction;
+        const data = {
+          city: attraction_city,
+          attraction_name: attraction_name,
+          attraction_description: attraction_description,
+          attraction_image: attraction_image
+        };
+    
+        axios
+          .post('http://localhost:8080/bucketlist', data)
+          .then(response => {
+            console.log('Data added to bucket list:', response.data);
+            
+          })
+          .catch(error => {
+            console.error('Failed to add data to bucket list:', error);
+            
+          });
+      };
+
 
     return (
         <div className="attractions">
-            <h1 className="attractions__title">Please select your city:</h1>
-            <select className="attractions__dropdown" name="mySelect" value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
-                <option>Please select</option>
-                {cities.map((city) => {
-                    return (
-                        <option key={city.id} value={city.id}>{city.city}</option>
-                    )
-                })}
-            </select>
+            <div className="attractions__block">
+            <div className="attractions__select-container">
+                <h2 className="attractions__title">Please select your city:</h2>
+                <select className="attractions__dropdown" name="mySelect" value={selectedCity} onChange={(e) => setSelectedCity(e.target.value)}>
+                    <option>Please select</option>
+                    {cities.map((city) => {
+                        return (
+                            <option key={city.id} value={city.id}>{city.city}</option>
+                        )
+                    })}
+                </select>
+            </div>
+            </div>
+            {!selectedCity && (
+            <div className="attractions__space"></div>
+            )}
             <div className="attractions__container">
                 {attractions.map((attraction) => {
                     return (
@@ -64,6 +93,7 @@ const Attractions = () => {
                                 <p className="attractions__location">Destination: {attraction.attraction_city}</p>
                                 <p className="attractions__name">Attraction name: {attraction.attraction_name}</p>
                                 <p className="attractions__description">Description: {attraction.attraction_description}</p>
+                                <Button onClick={() => handleAddToBucketlist(attraction)} variant="contained">Add to bucket list</Button>
                             </div>
                         </>
                     )
