@@ -11,9 +11,13 @@
       opacity: 1;
     }
   }
-  
 
 .header {
+
+    &__logout-container {
+        display: flex;
+        justify-content: end;
+    }
     
     &__container {
         background-color: $White;

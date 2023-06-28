@@ -2,15 +2,19 @@ import './Header.scss'
 import logo3 from '../../assets/images/logo3.png';
 import { Link, NavLink } from 'react-router-dom';
 import { useState } from 'react';
+import { UserContext } from '../UserContext';
+
 
 
 const Header = () => {
 
     const [activeLink, setActiveLink] = useState('Attractions');
 
+
     const handleNavLinkClick = (link) => {
         setActiveLink(link);
     };
+
     return (
         <header className="header">
             <div className="header__container">

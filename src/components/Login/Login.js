@@ -17,15 +17,8 @@ const Login = ({ onLogin }) => {
             await axios
             .post('http://localhost:8080/users/login', { username, password })
             .then(response => {
-                console.log(response);
-                // const { token } = response.data;
-
-                // localStorage.setItem('token', token);
-
                 const loggedInUser = response.data.username;
                 setLoggedInUser(loggedInUser);
-
-                console.log('Login successful');
                 onLogin();
                 navigate('/attractions');
             })
